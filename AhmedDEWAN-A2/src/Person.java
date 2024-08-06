@@ -1,7 +1,7 @@
 
 
-
-public class Person {
+//PART 2; added the keyword Abstract, so it cannot be instanced
+public abstract class Person {
 
     // 3 instance variables
     private String name;

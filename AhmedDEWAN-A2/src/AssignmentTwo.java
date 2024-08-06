@@ -1,6 +1,20 @@
 //creating classes
 public class AssignmentTwo {
-    public static void main (String[] args){
-        System.out.println("Welcome to my Theme Park Project, As a part of Task 2");
+
+//the following code was given in the Assignment to add in here.
+    public static void main(String[] args) {
     }
+    public void partThree(){
+    }
+    public void partFourA(){
+    }
+    public void partFourB(){
+    }
+    public void partFive(){
+    }
+    public void partSix(){
+    }
+    public void partSeven(){
+    }
+
 }
