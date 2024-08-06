@@ -19,4 +19,24 @@ public class Ride {
     public String getRideName(){
         return rideName;
     }
+    public void  setRideName(String rideName){
+        this.rideName = rideName;
+    }
+    public String getType (){
+        return type;
+    }
+    public void setType (String type){
+        this.type = type;
+    }
+    public Employee getOperator(){
+        return operator;
+    }
+
+    public void setOperator(Employee operator) {
+        this.operator = operator;
+    }
+//following method will help us to assign the operator
+    public void assignOperator(Employee operator){
+        this.operator = operator;
+    }
 }
