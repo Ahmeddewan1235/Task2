@@ -3,11 +3,11 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 
-public class Ride {
+public class Ride implements RideInterface{
     private String rideName;
     private String type;
     private Employee operator; //Referance from employee class
-//part 2
+//part 2/3
     private Queue<Visitor> queue;
     private LinkedList<Visitor> rideHistory;
 
@@ -53,20 +53,18 @@ public class Ride {
         this.operator = operator;
     }
 
-// PART 2; creating and interface in ride class.
-    public interface RideInterface{
-        void addVisitorToQueue (Visitor visitor);
-        void removeVisitorToQueue (Visitor visitor);
-        void printQueue();
-        void runOneCycle();
-        void printRideHistory();
-    }
 //implementing interface;
 //the following methods can
 @Override
     public void addVisitorToQueue(Visitor visitor){
         queue.add(visitor);
     }
+
+    @Override
+    public void removeVisitorToQueue(Visitor visitor) {
+
+    }
+
     public void removeVisitorFromQueue(Visitor visitor){
         queue.remove(visitor);
     }
