@@ -73,15 +73,22 @@ public class Ride implements RideInterface{
 
 //implementing interface;
 //the following methods can
+
 @Override
+//Part 5
     public void addVisitorToQueue(Visitor visitor){
         queue.add(visitor);
     }
-
     @Override
     public void removeVisitorFromQueue(Visitor visitor){
-        queue.remove(visitor);
+        if (queue.contains(visitor)){
+            queue.remove(visitor);
+            System.out.println(visitor.getName()+ "is removed");
+        } else {
+            System.out.println(visitor.getName() + "not in queu");
+        }
     }
+    @Override
     public void printQueue(){
         System.out.println("Queue is: ");
         for (Visitor visitor :queue){
@@ -89,13 +96,14 @@ public class Ride implements RideInterface{
         }
     }
 @Override
-    public void runOneCycle(){
-        if (!queue.isEmpty()){
-            Visitor visitor = queue.poll(); //get visitor from queue
-            rideHistory.add(visitor); //add to history
-            System.out.println("Ride for : " + visitor.getName());
-        } else {
-            System.out.println("No in the queue: ");
+    public void runOneCycle(){      //here i have added operate == null condition in  if else
+        if (operator == null){
+            System.out.println("No operator");
+            return;
+        }
+        if(Queue.size() < maxRiders){
+            System.out.println("not enough riders");
+            return;
         }
     }
     @Override
@@ -125,4 +133,7 @@ public class Ride implements RideInterface{
         Collections.sort(rideHistory,new VisitorComparator();
         System.out.println("Ride history sorted");
     }
+
+//Part 5
+
 }
