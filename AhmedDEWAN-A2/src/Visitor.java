@@ -14,7 +14,7 @@ public class Visitor {
         this.visits = visits;
     }
 
- //getters and setters
+    //getters and setters
     public String getTicket(){
         return ticket;
     }

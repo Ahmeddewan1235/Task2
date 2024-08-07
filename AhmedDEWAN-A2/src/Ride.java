@@ -2,11 +2,11 @@
 import java.util.Queue;
 import java.util.LinkedList;
 
-
 public class Ride implements RideInterface{
     private String rideName;
     private String type;
     private Employee operator; //Referance from employee class
+
 //part 2/3
     private Queue<Visitor> queue;
     private LinkedList<Visitor> rideHistory;
@@ -61,10 +61,6 @@ public class Ride implements RideInterface{
     }
 
     @Override
-    public void removeVisitorToQueue(Visitor visitor) {
-
-    }
-
     public void removeVisitorFromQueue(Visitor visitor){
         queue.remove(visitor);
     }
@@ -73,20 +69,21 @@ public class Ride implements RideInterface{
         for (Visitor visitor :queue){
             System.out.println(visitor.getName());
         }
-}
+    }
+@Override
     public void runOneCycle(){
         if (!queue.isEmpty()){
             Visitor visitor = queue.poll();
-            rideHistory.add(Visitor);
+            rideHistory.add(visitor);
             System.out.println("Ride for : " + visitor.getName());
         } else {
             System.out.println("No in the queue: ");
         }
     }
+    @Override
     public void printRideHistory(){
         System.out.println("Ride History: ");
-        for (Visitor vistor : rideHistory);
-        {
+        for (Visitor visitor : rideHistory); {
             System.out.println(visitor.getName());
         }
     }
