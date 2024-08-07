@@ -57,11 +57,18 @@ public class Ride implements RideInterface{
     public void assignOperator(Employee operator){
         this.operator = operator;
     }
+//PART 5 getters and setters
     public int getMaxRiders(){
         return maxRiders;
     }
     public void setMaxRiders(int maxRiders){
         this.maxRiders = maxRiders;
+    }
+    public  int getNumOfCycles(){
+        return numOfCycles;
+    }
+    public void setNumOfCycles(int numOfCycles){
+        this.numOfCycles = numOfCycles;
     }
 
 //implementing interface;
