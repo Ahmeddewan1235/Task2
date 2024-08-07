@@ -139,6 +139,13 @@ public class AssignmentTwo {
 
     }
     public void partSeven(){
+        Employee operator = new Employee("David", 33,"North", "11","collector");
+        Ride wheel = new Ride ("Big Wheel", "Wheel", operator, 20);
+
+        wheel.restoreVisitorsFile("visitor_backup.txt");
+        System.out.println("Number of Visitor" + wheel.printRideHistory().size());
+
+        wheel.printRideHistory();
     }
 
 }
