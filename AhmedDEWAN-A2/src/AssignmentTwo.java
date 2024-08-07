@@ -118,7 +118,17 @@ public class AssignmentTwo {
         System.out.println("All visirtor in Collection/History");
         roller.printRideHistory();
     }
-    public void partSix(){
+    public static void partSix(){
+        Employee operator = new Employee("David", 33,"North", "11","collector");
+        Ride Wheel = new Ride ("Big Wheel", "Wheel", operator, 20);
+
+        for (int i =1; i <=5; i++){
+            Visitor visitor = new Visitor("Visitor" + i, 20 + i,"Suburb" +i);
+            wheel.addVisitorToQueue(visitor);
+            wheel.runOneCycle();
+        }
+        wheel.backupVisitorsFile("visitor_backup.txt");
+
     }
     public void partSeven(){
     }

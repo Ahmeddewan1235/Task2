@@ -167,5 +167,4 @@ public class Ride implements RideInterface{
             System.out.println("Error can not write" + e.getMessage());
         }
     }
-
 }
