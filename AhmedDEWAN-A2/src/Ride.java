@@ -20,6 +20,9 @@ public class Ride implements RideInterface{
 //PART 5
     private int maxRiders;
     private int numOfCycles;
+//Part 8
+    private final Lock lock = new ReentrantLock();
+
 
     // Default constructor
     public Ride (){
@@ -106,6 +109,8 @@ public class Ride implements RideInterface{
     }
 @Override
     public void runOneCycle(){      //here i have added operate == null condition in  if else
+        lock.lock();
+        try{
         if (operator == null){
             System.out.println("No operator");
             return;
@@ -123,7 +128,11 @@ public class Ride implements RideInterface{
             System.out.println(visitor.getName() + "Ride complete");
             count++;
         }
-    }
+    }   finally {
+            lock.unlock();
+        }
+        }
+//PART 8 is implemented here lock Unlock
     @Override
     public void printRideHistory(){
         System.out.println("Ride History: ");
@@ -131,13 +140,18 @@ public class Ride implements RideInterface{
             System.out.println(visitor.getName());
         }
 //PART 5
+        lock.lock();
+        try{
         System.out.println("Ride History");
         Iterator<Visitor> iterator = rideHistory.iterator();
         while (iterator.hasNext()){
             Visitor visitor = iterator.next();
             System.out.println(visitor.getName());
         }
-    }
+    } finally {
+            lock.unlock();
+        }
+        }
 
 //Part 4A, ride history
     public void addVisitorToHistory(Visitor visitor){
@@ -172,7 +186,8 @@ public class Ride implements RideInterface{
     }
 //PART 7
     public void restoreVisitorsFile(String filename){
-        try(BufferedReader reader = new BufferedReader(new FileReader(filename)));
+       lock.lock();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename)));
         String line;
         while ((line = reader.readLine()) != null){
             String[] details = line.split(" / ");
@@ -190,5 +205,8 @@ public class Ride implements RideInterface{
         System.out.println("Visitors restotred from file name: " + filename);
     } catch (IOException e) {
         System.out.println("Error reading file " + e.getMessage());
+    } finally {
+            lock.unlock();
     }
+}
 }
