@@ -1,5 +1,8 @@
 
-import java.util.*;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Collections;
+import java.util.Iterator;
 
 public class Ride implements RideInterface{
     private String rideName;
@@ -101,15 +104,30 @@ public class Ride implements RideInterface{
             System.out.println("No operator");
             return;
         }
-        if(Queue.size() < maxRiders){
+        if(Queue.isEmpty()){
             System.out.println("not enough riders");
             return;
+        }
+// following is for one run and adding one into cycle
+        System.out.println("Running one Run Cycle----");
+        int count = 0;
+        while (!queue.isEmpty() && count < maxRiders){
+            Visitor visitor = queue.remove();
+            rideHistory.add(visitor);
+            System.out.println(visitor.getName() + "Ride complete");
+            count++;
         }
     }
     @Override
     public void printRideHistory(){
         System.out.println("Ride History: ");
         for (Visitor visitor : rideHistory) {
+            System.out.println(visitor.getName());
+        }
+        System.out.println("Ride History");
+        Iterator<Visitor> iterator = rideHistory.iterator();
+        while (iterator.hasNext()){
+            Visitor visitor = iterator.next();
             System.out.println(visitor.getName());
         }
     }
