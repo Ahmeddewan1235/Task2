@@ -6,7 +6,10 @@ public class AssignmentTwo {
     }
     public void partThree(){
         Employee operator = new Employee("Awais", 30,"West", "12","collector");
-        Ride joyRide = new Ride ("joy Ride", "Coaster", operator);
+        Ride joyRide = new Ride ("joy Ride", "Coaster", operator, 10);
+
+//above ride Constructer has been updates adding max rider in PART 5
+// so all the bellow Rides are also updated with max number
 
         //Creating Objects
         Visitor visitor1 = new Visitor("Ali", 20, "Shah", "abc1",10);
@@ -25,11 +28,11 @@ public class AssignmentTwo {
         joyRide.removeVisitorFromQueue(visitor5);
 
         joyRide.printQueue();
-
     }
+
     public void partFourA(){
         Employee operator = new Employee("Awais", 30,"West", "12","collector");
-        Ride bigSlide = new Ride ("Big Slide", "Slide", operator);
+        Ride bigSlide = new Ride ("Big Slide", "Slide", operator, 10);
 
 //here i am using the same visitor details BUT change the ride and visitor Number
 //To differentiate and understanding
@@ -54,7 +57,7 @@ public class AssignmentTwo {
     }
     public void partFourB(){
         Employee operator = new Employee("Ali", 33,"North", "11","collector");
-        Ride pool = new Ride ("Swimming pool", "Pool", operator);
+        Ride pool = new Ride ("Swimming pool", "Pool", operator, 10);
 
         Visitor visitor11 = new Visitor("Ali", 20, "AD", "abc1",14);
         Visitor visitor12 = new Visitor("Noreen", 25, "SCU", "abc4",15);
@@ -75,9 +78,35 @@ public class AssignmentTwo {
 //Output after sorting
         System.out.println("After sorting it is: ");
         pool.printRideHistory();
-
     }
+
     public void partFive(){
+        Employee operator = new Employee("Ali", 33,"North", "11","collector");
+        Ride roller = new Ride ("Roller Coaster", "roller", operator, 10);
+
+//Reusing visitor from part 3 and 4
+        Visitor visitor1 = new Visitor("Ali", 20, "Shah", "abc1",10);
+        Visitor visitor2 = new Visitor("Sham", 22, "Bulk", "abc2",20);
+        Visitor visitor3 = new Visitor("Sharon", 20, "Jays", "abc3",1);
+        Visitor visitor4 = new Visitor("Tom", 20, "n/a", "abc4",13);
+        Visitor visitor5 = new Visitor("Justin", 20, "Hoda", "abc5",17);
+        Visitor visitor6 = new Visitor("Ali", 20, "Shah", "abc1",10);
+        Visitor visitor7 = new Visitor("Sham", 22, "Bulk", "abc2",20);
+        Visitor visitor8 = new Visitor("Sharon", 20, "Jays", "abc3",1);
+        Visitor visitor9 = new Visitor("Tom", 20, "n/a", "abc4",13);
+        Visitor visitor10 = new Visitor("Justin", 20, "Hoda", "abc5",17);
+
+        roller.addVisitorToQueue(visitor1);
+        roller.addVisitorToQueue(visitor2);
+        roller.addVisitorToQueue(visitor3);
+        roller.addVisitorToQueue(visitor4);
+        roller.addVisitorToQueue(visitor5);
+        roller.addVisitorToQueue(visitor6);
+        roller.addVisitorToQueue(visitor7);
+        roller.addVisitorToQueue(visitor8);
+        roller.addVisitorToQueue(visitor9);
+        roller.addVisitorToQueue(visitor10);
+
     }
     public void partSix(){
     }

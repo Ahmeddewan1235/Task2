@@ -124,6 +124,7 @@ public class Ride implements RideInterface{
         for (Visitor visitor : rideHistory) {
             System.out.println(visitor.getName());
         }
+//PART 5
         System.out.println("Ride History");
         Iterator<Visitor> iterator = rideHistory.iterator();
         while (iterator.hasNext()){
