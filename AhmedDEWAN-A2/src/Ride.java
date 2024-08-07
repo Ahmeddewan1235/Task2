@@ -89,15 +89,24 @@ public class Ride implements RideInterface{
 @Override
 //Part 5
     public void addVisitorToQueue(Visitor visitor){
-        queue.add(visitor);
+        lock.lock();
+        try {
+            queue.add(visitor);
+        } finally {
+            lock.unlock();
+        }
     }
     @Override
     public void removeVisitorFromQueue(Visitor visitor){
+        lock.lock();
+        try {
         if (queue.contains(visitor)){
             queue.remove(visitor);
             System.out.println(visitor.getName()+ "is removed");
         } else {
             System.out.println(visitor.getName() + "not in queu");
+        }} finally {
+            lock.unlock();
         }
     }
     @Override
@@ -135,13 +144,13 @@ public class Ride implements RideInterface{
 //PART 8 is implemented here lock Unlock
     @Override
     public void printRideHistory(){
+        lock.lock();
+        try{
         System.out.println("Ride History: ");
         for (Visitor visitor : rideHistory) {
             System.out.println(visitor.getName());
         }
 //PART 5
-        lock.lock();
-        try{
         System.out.println("Ride History");
         Iterator<Visitor> iterator = rideHistory.iterator();
         while (iterator.hasNext()){
@@ -155,6 +164,8 @@ public class Ride implements RideInterface{
 
 //Part 4A, ride history
     public void addVisitorToHistory(Visitor visitor){
+        lock.lock();
+        try{
         rideHistory.add(visitor);
         System.out.println("Visitor "+ Visitor.getName() + "has been added to collection");
 }
@@ -165,6 +176,8 @@ public class Ride implements RideInterface{
         int count = rideHistory.size();
         System.out.println("Number of Visitor in History is " + count);
         return count;
+    } finally {
+        lock.unlock();
     }
 
 //Part 4B
