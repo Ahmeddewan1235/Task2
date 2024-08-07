@@ -107,6 +107,16 @@ public class AssignmentTwo {
         roller.addVisitorToQueue(visitor9);
         roller.addVisitorToQueue(visitor10);
 
+        System.out.println("Today's Visitor are: ");
+        roller.printQueue();
+
+        roller.runOneCycle();
+//print in one run
+        System.out.println("All Visitor of first run");
+        roller.printQueue();
+//print history
+        System.out.println("All visirtor in Collection/History");
+        roller.printRideHistory();
     }
     public void partSix(){
     }
