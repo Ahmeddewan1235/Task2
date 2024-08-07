@@ -1,4 +1,4 @@
-public class Visitor {
+public class Visitor extends Person {
     private String ticket;
     private int visits;
 

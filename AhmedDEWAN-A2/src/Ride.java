@@ -1,6 +1,7 @@
 
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Iterator;
 
 public class Ride implements RideInterface{
     private String rideName;
@@ -49,7 +50,6 @@ public class Ride implements RideInterface{
         this.operator = operator;
     }
 //following method will help us to assign the operator
-@Override
     public void assignOperator(Employee operator){
         this.operator = operator;
     }
@@ -74,8 +74,8 @@ public class Ride implements RideInterface{
 @Override
     public void runOneCycle(){
         if (!queue.isEmpty()){
-            Visitor visitor = queue.poll();
-            rideHistory.add(visitor);
+            Visitor visitor = queue.poll(); //get visitor from queue
+            rideHistory.add(visitor); //add to history
             System.out.println("Ride for : " + visitor.getName());
         } else {
             System.out.println("No in the queue: ");
@@ -88,4 +88,10 @@ public class Ride implements RideInterface{
             System.out.println(visitor.getName());
         }
     }
+
+//Part 4A, ride history
+public void addVisitorToHistory(Visitor visitor){
+        rideHistory.add(visitor);
+        System.out.println();
+}
 }
