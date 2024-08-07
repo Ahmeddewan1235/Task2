@@ -4,6 +4,11 @@ import java.util.Queue;
 import java.util.LinkedList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Ride implements RideInterface{
     private String rideName;
