@@ -5,10 +5,12 @@ public class Ride implements RideInterface{
     private String rideName;
     private String type;
     private Employee operator; //Referance from employee class
-
 //part 2/3
     private Queue<Visitor> queue;
     private LinkedList<Visitor> rideHistory;
+//PART 5
+    private int maxRiders;
+    private int numOfCycles;
 
     // Default constructor
     public Ride (){
@@ -17,14 +19,18 @@ public class Ride implements RideInterface{
         this.operator = null;
         this.queue = new LinkedList<>();
         this.rideHistory = new LinkedList<>();
+        this.maxRiders = 1;
+        this.numOfCycles = 0;
     }
     // Constructor with parameters
-    public Ride (String rideName, String type, Employee operator){
+    public Ride (String rideName, String type, Employee operator, int maxRiders){
         this.rideName = rideName;
         this.type = type;
         this.operator = operator;
         this.queue = new LinkedList<>();
         this.rideHistory = new LinkedList<>();
+        this.maxRiders = maxRiders;
+        this.numOfCycles = 0;
     }
 
 //Getters and setters
@@ -50,6 +56,12 @@ public class Ride implements RideInterface{
 //following method will help us to assign the operator
     public void assignOperator(Employee operator){
         this.operator = operator;
+    }
+    public int getMaxRiders(){
+        return maxRiders;
+    }
+    public void setMaxRiders(int maxRiders){
+        this.maxRiders = maxRiders;
     }
 
 //implementing interface;
