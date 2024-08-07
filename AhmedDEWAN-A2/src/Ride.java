@@ -1,7 +1,5 @@
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.Collections;
@@ -166,5 +164,26 @@ public class Ride implements RideInterface{
         } catch (FileNotFoundException e){
             System.out.println("Error can not write" + e.getMessage());
         }
+    }
+//PART 7
+    public void restoreVisitorsFile(String filename){
+        try(BufferedReader reader = new BufferedReader(new FileReader(filename)));
+        String line;
+        while ((line = reader.readLine()) != null){
+            String[] details = line.split(" / ");
+            if(details.length == 5){
+                String name = details[0];
+                int age = Integer.parseInt(details[1]);
+                String suburb = details[2];
+                String ticket = details[3];
+                int visits = Integer.parseInt(details[4]);
+
+                Visitor visitor = new Visitor(name, age, suburb, ticket, visits);
+                rideHistory.add(visitor);
+            }
+        }
+        System.out.println("Visitors restotred from file name: " + filename);
+    } catch (IOException e) {
+        System.out.println("Error reading file " + e.getMessage());
     }
 }

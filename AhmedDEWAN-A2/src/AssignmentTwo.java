@@ -115,18 +115,26 @@ public class AssignmentTwo {
         System.out.println("All Visitor of first run");
         roller.printQueue();
 //print history
-        System.out.println("All visirtor in Collection/History");
+        System.out.println("All visitor in Collection/History");
         roller.printRideHistory();
     }
     public static void partSix(){
         Employee operator = new Employee("David", 33,"North", "11","collector");
-        Ride Wheel = new Ride ("Big Wheel", "Wheel", operator, 20);
+        Ride wheel = new Ride ("Big Wheel", "Wheel", operator, 20);
 
-        for (int i =1; i <=5; i++){
-            Visitor visitor = new Visitor("Visitor" + i, 20 + i,"Suburb" +i);
-            wheel.addVisitorToQueue(visitor);
-            wheel.runOneCycle();
-        }
+        Visitor visitor1 = new Visitor("Ali", 20, "Shah", "abc1",10);
+        Visitor visitor2 = new Visitor("Sham", 22, "Bulk", "abc2",20);
+        Visitor visitor3 = new Visitor("Sharon", 20, "Jays", "abc3",1);
+        Visitor visitor4 = new Visitor("Tom", 20, "n/a", "abc4",13);
+        Visitor visitor5 = new Visitor("Justin", 20, "Hoda", "abc5",17);
+
+        wheel.addVisitorToQueue(visitor1);
+        wheel.addVisitorToQueue(visitor2);
+        wheel.addVisitorToQueue(visitor3);
+        wheel.addVisitorToQueue(visitor4);
+        wheel.addVisitorToQueue(visitor5);
+
+        wheel.runOneCycle();
         wheel.backupVisitorsFile("visitor_backup.txt");
 
     }
