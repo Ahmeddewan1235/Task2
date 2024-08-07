@@ -168,21 +168,25 @@ public class Ride implements RideInterface{
         try{
         rideHistory.add(visitor);
         System.out.println("Visitor "+ Visitor.getName() + "has been added to collection");
-}
-    public boolean isVisitorInHistory (Visitor visitor){
-        return rideHistory.contains(visitor);
-    }
+} finally {
+        lock.unlock();
+    public boolean isVisitorInHistory(Visitor visitor){
+        lock.lock();
+        try{
+            return rideHistory.contains(visitor);
+    } finally {
+            lock.unlock();
+        }
+        }
     public int getNumberOfVisitorInHistory(){
         int count = rideHistory.size();
         System.out.println("Number of Visitor in History is " + count);
         return count;
-    } finally {
-        lock.unlock();
     }
 
 //Part 4B
     public void sortRideHistory(){
-        Collections.sort(rideHistory,new VisitorComparator();
+        Collections.sort(rideHistory,new VisitorComparator());
         System.out.println("Ride history sorted");
     }
 
@@ -200,7 +204,7 @@ public class Ride implements RideInterface{
 //PART 7
     public void restoreVisitorsFile(String filename){
        lock.lock();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename)));
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))){;
         String line;
         while ((line = reader.readLine()) != null){
             String[] details = line.split(" / ");
