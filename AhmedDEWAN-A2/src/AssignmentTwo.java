@@ -28,6 +28,29 @@ public class AssignmentTwo {
 
     }
     public void partFourA(){
+        Employee operator = new Employee("Awais", 30,"West", "12","collector");
+        Ride bigSlide = new Ride ("Big Slide", "Slide", operator);
+
+//here i am using the same visitor details BUT change the ride and visitor Number
+//To differentiate and understanding
+
+        Visitor visitor6 = new Visitor("Ali", 20, "Shah", "abc1",10);
+        Visitor visitor7 = new Visitor("Sham", 22, "Bulk", "abc2",20);
+        Visitor visitor8 = new Visitor("Sharon", 20, "Jays", "abc3",1);
+        Visitor visitor9 = new Visitor("Tom", 20, "n/a", "abc4",13);
+        Visitor visitor10 = new Visitor("Justin", 20, "Hoda", "abc5",17);
+
+        bigSlide.addVisitorToHistory(visitor6);
+        bigSlide.addVisitorToHistory(visitor7);
+        bigSlide.addVisitorToHistory(visitor8);
+        bigSlide.addVisitorToHistory(visitor9);
+        bigSlide.addVisitorToHistory(visitor10);
+//Check for history
+        bigSlide.isVisitorInHistory(visitor7);
+//check for number
+        bigSlide.getNumberOfVisitorInHistory();
+//print all
+        bigSlide.printRideHistory();
     }
     public void partFourB(){
     }
