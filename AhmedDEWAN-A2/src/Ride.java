@@ -1,7 +1,6 @@
 
 import java.util.Queue;
 import java.util.LinkedList;
-import java.util.Iterator;
 
 public class Ride implements RideInterface{
     private String rideName;
