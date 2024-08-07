@@ -53,6 +53,29 @@ public class AssignmentTwo {
         bigSlide.printRideHistory();
     }
     public void partFourB(){
+        Employee operator = new Employee("Ali", 33,"North", "11","collector");
+        Ride pool = new Ride ("Swimming pool", "Pool", operator);
+
+        Visitor visitor11 = new Visitor("Ali", 20, "AD", "abc1",14);
+        Visitor visitor12 = new Visitor("Noreen", 25, "SCU", "abc4",15);
+        Visitor visitor13 = new Visitor("Jess", 28, "DS", "abc5",21);
+        Visitor visitor14 = new Visitor("kol", 18, "MLA", "abc13",12);
+        Visitor visitor15 = new Visitor("Dis", 29, "MPA", "abc12",12);
+
+        pool.addVisitorToHistory(visitor11);
+        pool.addVisitorToHistory(visitor12);
+        pool.addVisitorToHistory(visitor14);
+        pool.addVisitorToHistory(visitor15);
+        pool.addVisitorToHistory(visitor13);
+//output before sorting
+        System.out.println("Before sort is performed ");
+        pool.printRideHistory();
+//Sorting command
+        pool.sortRideHistory();
+//Output after sorting
+        System.out.println("After sorting it is: ");
+        pool.printRideHistory();
+
     }
     public void partFive(){
     }
