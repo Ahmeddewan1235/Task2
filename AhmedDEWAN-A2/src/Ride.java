@@ -49,6 +49,7 @@ public class Ride implements RideInterface{
         this.operator = operator;
     }
 //following method will help us to assign the operator
+@Override
     public void assignOperator(Employee operator){
         this.operator = operator;
     }
@@ -83,7 +84,7 @@ public class Ride implements RideInterface{
     @Override
     public void printRideHistory(){
         System.out.println("Ride History: ");
-        for (Visitor visitor : rideHistory); {
+        for (Visitor visitor : rideHistory) {
             System.out.println(visitor.getName());
         }
     }
