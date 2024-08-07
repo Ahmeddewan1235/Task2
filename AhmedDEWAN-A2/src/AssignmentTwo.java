@@ -143,7 +143,7 @@ public class AssignmentTwo {
         Ride wheel = new Ride ("Big Wheel", "Wheel", operator, 20);
 
         wheel.restoreVisitorsFile("visitor_backup.txt");
-        System.out.println("Number of Visitor" + wheel.printRideHistory().size());
+        System.out.println("Number of Visitor" + wheel.getNumberOfVisitorInHistory().size());
 
         wheel.printRideHistory();
     }
